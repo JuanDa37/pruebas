@@ -1,13 +1,15 @@
 package com.proyectonu1.app.entidades;
 
-import java.time.LocalDate;
-import java.util.Date;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class Competicion {
+
+
+
+
+
 	
 	@Id
 	private String id;
