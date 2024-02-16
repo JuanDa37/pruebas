@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+	<style>
+		body{
+			background: url(https://www.utch.edu.co/nueva/images/Noticias/Pruebas-Saber-pro.png);
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: 0px -600px;
+			background-attachment: fixed;
+		}
+		.contenedor{
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+			margin: 380px 0px 0px 0px;
+		}
+		p{
+			text-align: center;
+		}
+		a{
+			font-size: 40px;
+			color: rgb(255, 255, 255);
+			text-decoration: none;
+			background: rgb(5, 11, 211);
+			padding: 20px 60px;
+			border-radius: 20px;
+			border: 1px solid rgb(30, 41, 145);
+			box-shadow: 1px 1px 8px rgb(62, 90, 225);
+		}
+		
+	</style>
+<body>
+	
+	<div class="casa"></div>
+	<div class="contenedor">
+	<p><a th:href="@{/loginCoordinador}">Coordinador</a></p>
+	<p><a th:href="@{/loginEstudiante}">Estudiante</a></p>
+	</div>
+
+</body>
+</html>

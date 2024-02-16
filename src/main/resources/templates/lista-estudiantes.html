@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Tabla equipos</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<style>
+	li a:hover{
+		color: rgb(192, 192, 192) !important;	
+	}
+	img{
+		width: 60px;
+		cursor: pointer;
+	}
+	i{
+		font-size: 40px;
+		cursor: pointer;
+	}
+	.contenedor{
+		width: 1400px;
+		margin: auto;
+	}
+	body{
+		background: url(https://image.slidesdocs.com/responsive-images/background/education-minimalist-stationery-letter-simple-powerpoint-background_03be916e1b__960_540.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center center;
+	}
+</style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+    <img src="https://www.ucaldas.edu.co/portal/wp-content/uploads/2019/09/PRUEBAS-SABER-PRO-compressor.png">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/estudiantes/}">Gestionar estudiantes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/informe/}">Gestionar informe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/coordinador/}">Editar mis datos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true"></a>
+        </li>
+      </ul>
+        <form class="d-flex" role="search">
+			<a th:href="@{/loginCoordinador}">
+        	<i class='bx bx-log-out'></i>
+        	</a>
+      </form>
+    </div>
+  </div>
+</nav>
+<main>
+	<div class="contenedor">
+        <div class="cont_main mt-5">
+			<h1 class="text-center">Lista de estudiantes</h1>
+            <a th:href="@{/estudiantes/new}" class="add btn btn-primary">
+                Agregar
+            </a>
+            <table class="table table-striped m-3 tab">
+                <thead class="table-dark">
+                <tr class="text-center">
+                    <td><strong>Tipo de Documento</strong></td>
+                    <td><strong>Número de Documento</strong></td>
+                    <td><strong>Pimer Apellido</strong></td>
+                    <td><strong>Segundo Apellido</strong></td>
+                    <td><strong>Primer Nombre</strong></td>
+                    <td><strong>Segundo Nombre</strong></td>
+                    <td><strong>Correo Electrónico</strong></td>
+                    <td><strong>Número Telefónico</strong></td>
+                    <td><strong>Usuario</strong></td>
+                    <td><strong>Contrasena</strong></td>
+                    <td><strong>Editar</strong></td>
+                    <td><strong>Eliminar</strong></td>
+                </tr>
+                </thead>
+                <tbody class="">
+                <tr th:each="estudian : ${estudiante}">
+                    <td>[[ ${estudian.tipoDocumento} ]]</td>
+                    <td>[[ ${estudian.numeroDocumento} ]]</td>
+                    <td>[[ ${estudian.primerApellido} ]]</td>
+                    <td>[[ ${estudian.segundoApellido} ]]</td>
+                    <td>[[ ${estudian.primerNombre} ]]</td>
+                    <td>[[ ${estudian.segundoNombre} ]]</td>
+                    <td>[[ ${estudian.correoElectronico} ]]</td>
+                    <td>[[ ${estudian.numeroTelefonico} ]]</td>
+                    <td>[[ ${estudian.usuario} ]]</td>
+                    <td>[[ ${estudian.contrasena} ]]</td>
+                    <td>
+                        <a class="mx-3 text-warning" th:href="@{/estudiantes/edit/{id}(id = ${estudian.id})}">
+                            <i class='bx bx-edit-alt fs-4'></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="mx-3 text-danger" th:href="@{/estudiantes/delete/{id}(id = ${estudian.id})}">
+                            <i class='bx bxs-message-square-x fs-4'></i>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+</main>
+</body>
+
+</html>
